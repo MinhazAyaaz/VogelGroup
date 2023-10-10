@@ -1,10 +1,10 @@
 "use client"; // This is a client component 👈🏽
 import { useEffect, useState, useRef } from "react";
 import "./styles.css";
-import { motion,useScroll } from "framer-motion";
 import Section from "./section";
 
 export default function Home() {
+  const sectionRefs = useRef([]); // Create an array of refs for the Section components
   const [scrollPosition, setScrollPosition] = useState(0);
   const [bgScale, setBgScale] = useState(1);
 
@@ -14,6 +14,7 @@ export default function Home() {
     // Calculate scale factor - this can be adjusted
     const scaleFactor = 1 + scrollPosition / 1000;
     setBgScale(scaleFactor);
+    
   };
 
   useEffect(() => {
@@ -30,23 +31,25 @@ export default function Home() {
   };
 
   const computeScale = (index) => {
-    const divHeight = window.innerHeight + 30; // Assuming each div takes up the full viewport height
+    const divHeight = window.innerHeight+120; // Assuming each div takes up the full viewport height
     const relativeScroll = scrollPosition - divHeight * index;
 
     if (relativeScroll <= 0) return 1; // Not yet scrolled to this div
     if (relativeScroll >= divHeight) return 0; // Fully scrolled past this div
 
     // Compute scale between 1 and 0 based on how much of this div has been scrolled
+    console.log(1 - (relativeScroll / divHeight) * 2)
     return 1 - (relativeScroll / divHeight) * 2;
   };
 
-  const pages = [1,2,3,4,5]
-
   return (
     <div style={divStyle} className="backgroundImage">
-      {pages.map((pageNumber, key) => (
-        <Section key={key} pageNumber={pageNumber}/>
-      ))}
+      <Section styling={computeScale(0)}/>
+      <Section styling={computeScale(1)}/>
+      <Section styling={computeScale(2)}/>
+      <Section styling={computeScale(3)}/>
+      <Section styling={computeScale(4)}/>
     </div>
+    
   );
 }
