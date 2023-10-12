@@ -1,6 +1,7 @@
 "use client"; // This is a client component 👈🏽
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, forwardRef } from "react";
+import Image from "next/image";
 
 function Section({styling}) {
   const ref = useRef(null);
@@ -15,20 +16,22 @@ function Section({styling}) {
   return (
     <motion.div
       ref={ref}
-      className="relative h-screen w-screen flex justify-center items-center"
-      style={{ scale: scaling, opacity: opacity }}
+      className="relative h-screen w-screen flex justify-center items-center snap-center"
+      style={{ scale: scaling, opacity: opacity}}
     >
       <div className="w-[80%] h-[80%] rounded-3xl flex justify-center items-center" style={{scale: styling, opacity: styling}}>
         <div className="w-[50%] h-full flex justify-center items-center flex-col">
-          <img
-            src="https://images.unsplash.com/photo-1489395131208-596c1ecb2a39"
-            alt="image"
-            className="w-[80%] rounded-3xl"
-          />
+          <Image
+                  src="https://images.unsplash.com/photo-1489395131208-596c1ecb2a39"
+                  alt="image"
+                  className="w-[80%] rounded-3xl"
+                  width={1000}
+                  height={1000}
+                />
         </div>
         <div className="w-[50%] h-full flex justify-center items-center flex-col">
           <h3 className="mt-6 text-5xl font-mono mb-10">THE ADVENTURE</h3>
-          <p>
+          <p className="text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam
             sem et tortor consequat id porta nibh venenatis. Orci phasellus

@@ -5,7 +5,7 @@ const nextConfig =
         remotePatterns: [
           {
             protocol: 'https',
-            hostname: 'scroll-driven-animations.style',
+            hostname: 'images.unsplash.com',
           },
           {
             protocol: 'https',

@@ -1,7 +1,8 @@
 "use client"; // This is a client component 👈🏽
 import { useEffect, useState, useRef } from "react";
 import "./styles.css";
-import Section from "./section";
+import FirstSection from "./pages/firstSection";
+import ThirdSection from "./pages/thirdSection";
 
 export default function Home() {
   const sectionRefs = useRef([]); // Create an array of refs for the Section components
@@ -26,7 +27,7 @@ export default function Home() {
   }, []);
 
   const divStyle = {
-    backgroundSize: `${bgScale * 100}%`,
+    backgroundSize: `${bgScale * 5}%`,
     backgroundPosition: "center",
   };
 
@@ -42,14 +43,18 @@ export default function Home() {
     return 1 - (relativeScroll / divHeight) * 2;
   };
 
+  const pages = [0,1,2,3,4]
+
   return (
+    <>
     <div style={divStyle} className="backgroundImage">
-      <Section styling={computeScale(0)}/>
-      <Section styling={computeScale(1)}/>
-      <Section styling={computeScale(2)}/>
-      <Section styling={computeScale(3)}/>
-      <Section styling={computeScale(4)}/>
+      {pages.map((index, key) => {
+        return(
+          // <FirstSection key={5} styling={computeScale(index)}/>
+          <ThirdSection key={5} />
+        )
+      })}
     </div>
-    
+    </>
   );
 }
