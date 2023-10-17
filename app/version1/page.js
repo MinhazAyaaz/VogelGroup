@@ -1,11 +1,9 @@
 "use client"; // This is a client component 👈🏽
 import { useEffect, useState, useRef } from "react";
-import "./styles.css";
-import FirstSection from "./version1/firstSection";
-import ThirdSection from "./version2/thirdSection";
+import "../styles.css";
+import FirstSection from "./firstSection";
 
-export default function Home() {
-  const sectionRefs = useRef([]); // Create an array of refs for the Section components
+export default function Version1() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [bgScale, setBgScale] = useState(1);
 
@@ -54,13 +52,6 @@ export default function Home() {
         )
       })}
     </div>
-    {/* <div style={divStyle} className="backgroundImage2">
-      {pages.map((index, key) => {
-        return(
-          <ThirdSection key={5} />
-        )
-      })}
-    </div> */}
     </>
   );
 }
