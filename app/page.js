@@ -50,8 +50,8 @@ export default function Home() {
     <div style={divStyle} className="backgroundImage">
       {pages.map((index, key) => {
         return(
-          // <FirstSection key={5} styling={computeScale(index)}/>
-          <ThirdSection key={5} />
+          <FirstSection key={5} styling={computeScale(index)}/>
+          // <ThirdSection key={5} />
         )
       })}
     </div>
