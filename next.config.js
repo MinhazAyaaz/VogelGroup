@@ -11,6 +11,10 @@ const nextConfig =
             protocol: 'https',
             hostname: 'uploads-ssl.webflow.com',
           },
+          {
+            protocol: 'https',
+            hostname: 'c0.klipartz.com',
+          },
         ],
       },
 }
