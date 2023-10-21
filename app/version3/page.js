@@ -149,7 +149,7 @@ export default function Page() {
           <Image className="rounded-3xl" src="/pokemon.png" alt="pokemon" width={1000} height={1000}/>
         </motion.div>
       </div>
-      {new Array(20).fill(null).map((_, index) => (
+      {new Array(10).fill(null).map((_, index) => (
         <div className="h-screen w-screen" key={index} />
       ))}
     </div>
